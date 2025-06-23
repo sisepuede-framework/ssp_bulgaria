@@ -1,5 +1,0 @@
-country_name: "mongolia"
-ssp_input_file_name: "MNG_real_data_20250604.csv"
-ssp_transformation_cw: "ssp_mongolia_transformation_v0.xlsx"
-set_lndu_reallocation_factor_to_zero: true
-energy_model_flag: false

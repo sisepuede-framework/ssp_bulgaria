@@ -1,4 +1,4 @@
-# SSP_Mongolia
+# SSP_Bulgaria
 
 This repository contains notebooks and supporting files used to run the
 **SISEPUEDE** model on Mongolia's mitigation scenarios. All modeling resources
@@ -50,12 +50,12 @@ The most relevant files are inside the `ssp_modeling` directory:
 - `output_postprocessing/` – R scripts used to rescale model results and
     generate processed outputs.
 
-## Mongolia Manager Workbooks
+## Bulgaria Manager Workbooks
 
 We use notebooks to drive the modeling process:
 
-- **`mongolia_manager_wb.ipynb`** – Runs the mapped scenarios using
-    `mongolia_config.yaml`.
+- **`bulgaria_manager_wb.ipynb`** – Runs the mapped scenarios using
+    `bulgaria_config.yaml`.
 
 Each notebook loads the appropriate configuration file, prepares the input data
 frame, applies the transformations listed in the corresponding workbook, and
