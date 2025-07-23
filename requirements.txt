@@ -1,4 +1,0 @@
-matplotlib
-XlsxWriter
-ipykernel
-ssp-transformations-handler==0.1.7
