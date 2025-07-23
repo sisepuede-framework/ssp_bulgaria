@@ -185,3 +185,6 @@ ssp_modeling/transformations/templates/
 
 # Ignore Tableau temporary files
 ~*.twbr
+
+# Ignore VS Code settings
+.vscode/
