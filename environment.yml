@@ -1,4 +1,4 @@
-name: ssp_bulgaria
+name: ssp_test
 channels:
   - conda-forge
 dependencies:
@@ -8,6 +8,6 @@ dependencies:
   - ipykernel=6.29.5
   - pip
   - pip:
-      - git+https://github.com/jcsyme/sisepuede.git@main
+      - git+https://github.com/jcsyme/sisepuede.git
       - ssp-transformations-handler
 
