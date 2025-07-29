@@ -1,9 +1,4 @@
-rm(list=ls())
-
-#load packages
-library(data.table)
-
-dir.output  <- "ssp_modeling/ssp_run_output/sisepuede_run_2025-07-28T12;30;52.790396/"
+# Data preparation for drivers data
 dir.data <- paste0(dir.output)
 file.name <-"bulgaria.csv"
 
@@ -157,8 +152,10 @@ if (grepl("prod_ippu_textiles_tonne:IPPU",ids_all[i])==TRUE)
 test2$value <- ifelse(test2$value_new==0,test2$value,test2$value_new)
 test2$value_new <- NULL 
 
-#write
-#test2 <- subset(test2,strategy_id!=6005)
-write.csv(test2,"ssp_modeling/Tableau/data/drivers_bulgaria_250838.csv", row.names=FALSE)
+#write file 
+dir.tableau <- paste0("ssp_modeling/Tableau/data/")
+file.name <- paste0("drivers_bulgaria_",output.file)
+
+write.csv(test2,paste0(dir.tableau,file.name),row.names=FALSE)
 
 print('Finish: data_prep_drivers process')
