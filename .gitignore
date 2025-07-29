@@ -178,7 +178,7 @@ cython_debug/
 *.mps
 
 # ignore the transformations dir
-# transformations/
+transformations/
 
 # ignore the .vscode directory
 .vscode/

@@ -1,5 +1,3 @@
-rm(list=ls())
-
 ################################################################################
 # This script runs the intertemporal decomposition for the baseline run
 ################################################################################
@@ -16,9 +14,6 @@ target_vars <- unlist(strsplit(te_all$Vars,":"))
 # modification of AG - Livestock:N2O subsector matching
 te_all$Vars[3] <- "emission_co2e_n2o_lsmm_direct_anaerobic_digester:emission_co2e_n2o_lsmm_direct_anaerobic_lagoon:emission_co2e_n2o_lsmm_direct_composting:emission_co2e_n2o_lsmm_direct_daily_spread:emission_co2e_n2o_lsmm_direct_deep_bedding:emission_co2e_n2o_lsmm_direct_dry_lot:emission_co2e_n2o_lsmm_direct_incineration:emission_co2e_n2o_lsmm_direct_liquid_slurry:emission_co2e_n2o_lsmm_direct_paddock_pasture_range:emission_co2e_n2o_lsmm_direct_poultry_manure:emission_co2e_n2o_lsmm_direct_storage_solid:emission_co2e_n2o_lsmm_indirect_anaerobic_digester:emission_co2e_n2o_lsmm_indirect_anaerobic_lagoon:emission_co2e_n2o_lsmm_indirect_composting:emission_co2e_n2o_lsmm_indirect_daily_spread:emission_co2e_n2o_lsmm_indirect_deep_bedding:emission_co2e_n2o_lsmm_indirect_dry_lot:emission_co2e_n2o_lsmm_indirect_incineration:emission_co2e_n2o_lsmm_indirect_liquid_slurry:emission_co2e_n2o_lsmm_indirect_paddock_pasture_range:emission_co2e_n2o_lsmm_indirect_poultry_manure:emission_co2e_n2o_lsmm_indirect_storage_solid"
 
-#ouputfile
-dir.output  <- "ssp_modeling/ssp_run_output/sisepuede_run_2025-07-28T12;30;52.790396/"
-output.file <-"sisepuede_run_2025-07-28T12;30;52.790396.csv"
 
 data_all<-read.csv(paste0(dir.output,output.file))
 rall <- unique(data_all$region)
