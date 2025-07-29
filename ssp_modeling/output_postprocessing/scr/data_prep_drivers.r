@@ -3,13 +3,13 @@ rm(list=ls())
 #load packages
 library(data.table)
 
-output.folder <- "ssp_modeling/ssp_run/"
-dir.data <- paste0(output.folder)
-file.name <-"mongolia.csv"
+dir.output  <- "ssp_modeling/ssp_run_output/sisepuede_run_2025-07-28T12;30;52.790396/"
+dir.data <- paste0(dir.output)
+file.name <-"bulgaria.csv"
 
-#load turkey data  
+#load bulgaria data  
 data <- read.csv(paste0(dir.data,file.name)) 
-data <- subset(data,region=="mongolia")
+data <- subset(data,region=="bulgaria")
 
 # temporal correction baseline condition BaU
 table(data$primary_id)
@@ -64,10 +64,7 @@ test2$time_period <- NULL
 test2 <- subset (test2,Year>=2023)
 
 #read attribute primary
-att <- read.csv(paste0(output.folder,"ATTRIBUTE_PRIMARY.csv"))
-att <- subset(att, primary_id!=0)
-att$primary_id[att$primary_id==69069] <- 0
-att$strategy_id[att$strategy_id==6003] <- 0
+att <- read.csv(paste0(dir.output,"ATTRIBUTE_PRIMARY.csv"))
 head(att)
 
 #merge 
@@ -77,9 +74,7 @@ dim(test2)
 
 
 #merge stratgy atts 
-atts <- read.csv(paste0(output.folder,"ATTRIBUTE_STRATEGY.csv"))
-atts <- subset(atts, strategy_id!=0)
-atts$strategy_id[atts$strategy_id==6003] <- 0
+atts <- read.csv(paste0(dir.output,"ATTRIBUTE_STRATEGY.csv"))
 
 #merge 
 dim(test2)
@@ -91,8 +86,8 @@ table(test2$strategy_id)
 
 test2$Units <- "NA"
 test2$Data_Type <- "sisepuede simulation"
-test2$iso_code3<-"MNG"
-test2$Country <- "Mongolia"
+test2$iso_code3<-"BGR"
+test2$Country <- "Bulgaria"
 test2$region <- NULL
 test2$subsector_total_field <- NULL
 #test2$model_variable <- NULL
@@ -164,6 +159,6 @@ test2$value_new <- NULL
 
 #write
 #test2 <- subset(test2,strategy_id!=6005)
-write.csv(test2,"ssp_modeling/Tableau/data/drivers_mongolia.csv", row.names=FALSE)
+write.csv(test2,"ssp_modeling/Tableau/data/drivers_bulgaria_250838.csv", row.names=FALSE)
 
 print('Finish: data_prep_drivers process')

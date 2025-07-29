@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# macOS files
+*.DS_Store
+**/.DS_Store
+
 # Distribution / packaging
 .Python
 build/
@@ -94,12 +98,6 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
-
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
@@ -176,15 +174,14 @@ cython_debug/
 # Ignore virtual environment directories
 *Zone.Identifier
 
-# ignore templates dir
-ssp_modeling/transformations/templates/
-.Rproj.user
+# ignore .mps files
+*.mps
 
-# Ignore macOS system files
-.DS_Store
+# ignore the transformations dir
+# transformations/
 
-# Ignore Tableau temporary files
-~*.twbr
-
-# Ignore VS Code settings
+# ignore the .vscode directory
 .vscode/
+
+# ignore tableau large files
+ssp_modeling/Tableau/data/
