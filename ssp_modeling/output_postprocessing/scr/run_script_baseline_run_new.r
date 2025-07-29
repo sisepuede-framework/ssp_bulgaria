@@ -1,31 +1,34 @@
 rm(list=ls())
 
 ################################################################################
-# BaU
+# This script runs the intertemporal decomposition for the baseline run
 ################################################################################
 
-te_all<-read.csv("ssp_modeling/output_postprocessing/data/emission_targets_mongolia.csv")
+te_all<-read.csv("ssp_modeling/output_postprocessing/data/emission_targets_bulgaria.csv")
+# filter to keep only the subsectors of interest
 #te_all <- subset(te_all,Subsector%in%c( "lvst","lsmm","agrc","ippu","waso","trww","frst","lndu","soil"))
-target_country <- "MNG"
+target_country <- "BGR" # Bulgaria
 te_all<-te_all[,c("Subsector","Gas","Vars","Edgar_Class",target_country)]
 te_all[,"tvalue"] <- te_all[,target_country]
 te_all[,target_country] <- NULL
 target_vars <- unlist(strsplit(te_all$Vars,":"))
 
+# modification of AG - Livestock:N2O subsector matching
+te_all$Vars[3] <- "emission_co2e_n2o_lsmm_direct_anaerobic_digester:emission_co2e_n2o_lsmm_direct_anaerobic_lagoon:emission_co2e_n2o_lsmm_direct_composting:emission_co2e_n2o_lsmm_direct_daily_spread:emission_co2e_n2o_lsmm_direct_deep_bedding:emission_co2e_n2o_lsmm_direct_dry_lot:emission_co2e_n2o_lsmm_direct_incineration:emission_co2e_n2o_lsmm_direct_liquid_slurry:emission_co2e_n2o_lsmm_direct_paddock_pasture_range:emission_co2e_n2o_lsmm_direct_poultry_manure:emission_co2e_n2o_lsmm_direct_storage_solid:emission_co2e_n2o_lsmm_indirect_anaerobic_digester:emission_co2e_n2o_lsmm_indirect_anaerobic_lagoon:emission_co2e_n2o_lsmm_indirect_composting:emission_co2e_n2o_lsmm_indirect_daily_spread:emission_co2e_n2o_lsmm_indirect_deep_bedding:emission_co2e_n2o_lsmm_indirect_dry_lot:emission_co2e_n2o_lsmm_indirect_incineration:emission_co2e_n2o_lsmm_indirect_liquid_slurry:emission_co2e_n2o_lsmm_indirect_paddock_pasture_range:emission_co2e_n2o_lsmm_indirect_poultry_manure:emission_co2e_n2o_lsmm_indirect_storage_solid"
 
 #ouputfile
-output.folder <- "ssp_modeling/ssp_run/"
-output.file<-"sisepuede_results_sisepuede_mongolia_run.csv"
+dir.output  <- "ssp_modeling/ssp_run_output/sisepuede_run_2025-07-28T12;30;52.790396/"
+output.file <-"sisepuede_run_2025-07-28T12;30;52.790396.csv"
 
-data_all<-read.csv(paste0(output.folder,output.file))
+data_all<-read.csv(paste0(dir.output,output.file))
 rall <- unique(data_all$region)
+#check primary ids
+table(data_all$primary_id)
 
-# temporal correction baseline condition BaU
-data_all <- subset(data_all, primary_id!=0)
-data_all$primary_id[data_all$primary_id==69069] <- 0
+#check time periods
+table(data_all$time_period)
 
 #set params of rescaling function
-dir.output <- output.folder
 initial_conditions_id <- "_0"
 time_period_ref <- 7
 
@@ -37,7 +40,7 @@ dim(data_all)
 te_all$simulation <- 0
 for (i in 1:nrow(te_all))
  {
-   # i<- 12
+    #i <- 1
     vars <- unlist(strsplit(te_all$Vars[i],":"))
     if (length(vars)>1) {
     te_all$simulation[i] <- as.numeric(rowSums(data_all[data_all$primary_id==gsub("_","",initial_conditions_id) &  data_all$time_period==time_period_ref,vars]))
