@@ -57,5 +57,17 @@ gdp <- subset(gdp,select=c("time_period","gdp_mmm_usd"))
 cb_data <- merge(cb_data,gdp,by="time_period",all.x=TRUE)
 
 
+cb_data$value[cb_data$cb_type=='sector_specific'] <- cb_data$value[cb_data$cb_type=='sector_specific']*0.01
+cb_data$value[cb_data$cb_type=='system_cost'] <- cb_data$value[cb_data$cb_type=='system_cost']*0.1
+cb_data$value[cb_data$cb_type=='road_safety'] <- cb_data$value[cb_data$cb_type=='road_safety']*0.5
+cb_data$value[cb_data$cb_type=='congestion'] <- cb_data$value[cb_data$cb_type=='congestion']*0.5
+
+
+cb_data$value[cb_data$cb_type=='technical_cost' & cb_data$sector=='trns'] <- 
+  cb_data$value[cb_data$cb_type=='technical_cost' & cb_data$sector=='trns']*0.5
+
+cb_data$value[cb_data$cb_type=='technical_cost' & cb_data$sector=='inen'] <- 
+  cb_data$value[cb_data$cb_type=='technical_cost' & cb_data$sector=='inen']*0.5
+
 dir.out <- "ssp_modeling/tableau/data/"
 write.csv(cb_data,paste0(dir.out,"cb_data.csv"),row.names=FALSE)

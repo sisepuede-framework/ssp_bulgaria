@@ -12,11 +12,13 @@ rm(list=ls())
 
 #ouputfile
 
-dir.output  <- "ssp_modeling/ssp_run_output/sisepuede_results_sisepuede_run_2025-09-30T11;28;10.980165/"
-output.file <- "sisepuede_results_sisepuede_run_2025-09-30T11;28;10.980165_WIDE_INPUTS_OUTPUTS.csv"
+run <- 'sisepuede_results_sisepuede_run_2025-10-03T11;35;32.757306'
 
-region <- "mexico" 
-iso_code3 <- "MEX"
+dir.output  <- paste0('ssp_modeling/ssp_run_output/', run, '/')
+output.file <- paste0(run, '_WIDE_INPUTS_OUTPUTS.csv')
+
+region <- "bulgaria" 
+iso_code3 <- "BGR"
 
 year_ref <- 2022
 

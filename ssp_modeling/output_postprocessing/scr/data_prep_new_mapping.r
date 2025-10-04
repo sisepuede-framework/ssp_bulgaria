@@ -17,7 +17,7 @@ mapping[[iso_code3]] <- NULL
 # mapping$Vars[3] <- "emission_co2e_n2o_lsmm_direct_anaerobic_digester:emission_co2e_n2o_lsmm_direct_anaerobic_lagoon:emission_co2e_n2o_lsmm_direct_composting:emission_co2e_n2o_lsmm_direct_daily_spread:emission_co2e_n2o_lsmm_direct_deep_bedding:emission_co2e_n2o_lsmm_direct_dry_lot:emission_co2e_n2o_lsmm_direct_incineration:emission_co2e_n2o_lsmm_direct_liquid_slurry:emission_co2e_n2o_lsmm_direct_paddock_pasture_range:emission_co2e_n2o_lsmm_direct_poultry_manure:emission_co2e_n2o_lsmm_direct_storage_solid:emission_co2e_n2o_lsmm_indirect_anaerobic_digester:emission_co2e_n2o_lsmm_indirect_anaerobic_lagoon:emission_co2e_n2o_lsmm_indirect_composting:emission_co2e_n2o_lsmm_indirect_daily_spread:emission_co2e_n2o_lsmm_indirect_deep_bedding:emission_co2e_n2o_lsmm_indirect_dry_lot:emission_co2e_n2o_lsmm_indirect_incineration:emission_co2e_n2o_lsmm_indirect_liquid_slurry:emission_co2e_n2o_lsmm_indirect_paddock_pasture_range:emission_co2e_n2o_lsmm_indirect_poultry_manure:emission_co2e_n2o_lsmm_indirect_storage_solid"
 
 # add edgar
-edgar <- read.csv(paste0("ssp_modeling/output_postprocessing/data/CSC-GHG_emissions-April2024_to_calibrate_MEX.csv"))
+edgar <- read.csv(paste0("ssp_modeling/output_postprocessing/data/CSC-GHG_emissions-April2024_to_calibrate_",iso_code3,".csv"))
 dim(edgar)
 edgar <- subset(edgar,Code==iso_code3)
 dim(edgar)
@@ -198,8 +198,8 @@ hp_filter_subsec <- function(data,
   plot_dt <- dt[`CSC.Subsector` == subsec_target & Gas %in% gas_target]
   
   p <- ggplot(plot_dt, aes(x = .data[[time_col]])) +
-    geom_line(aes(y = value_original, colour = "Original"), size = 1) +
-    geom_line(aes(y = value_hp,      colour = "HP (anchored)"), size = 1, na.rm = TRUE) +
+    geom_line(aes(y = value_original, colour = "Original"), linewidth = 1) +
+    geom_line(aes(y = value_hp,      colour = "HP (anchored)"), linewidth = 1, na.rm = TRUE) +
     scale_colour_manual(values = c("Original" = "steelblue", "HP (anchored)" = "red")) +
     labs(
       x = time_col,
@@ -229,18 +229,6 @@ table(data_new$CSC.Subsector)
 # data_new$value[data_new$CSC.Subsector=='EN - Fugitive Emissions' & data_new$Year==2046 & data_new$Gas=='CO2' & data_new$strategy_id==6004] <-data_new$value[data_new$CSC.Subsector=='EN - Fugitive Emissions' & data_new$Year==2045 & data_new$Gas=='CO2' & data_new$strategy_id==6004]
 
 
- cond <- with(data_new,
-              CSC.Subsector == "EN - Fugitive Emissions" &
-                Gas == "CO2" &
-                strategy_id == 6003 &
-                Year>2022
- )
-
- rows <- which(cond %in% TRUE & !is.na(data_new$value))  # evita NAs en el índice
-data_new$value[rows] <- data_new$value[rows] * 0.8
-
-
-
 ################################################################################
 # HP
 ################################################################################
@@ -250,7 +238,7 @@ data_new$value[rows] <- data_new$value[rows] * 0.8
 res <- hp_filter_subsec(
   data = data_new,
   subsec_target = "AG - Crops",
-  gas_target = "N2O",
+  gas_target = "CO2",
   lambda_hp = 1600
 )
 
@@ -280,7 +268,7 @@ print(res$plot)
 
 res <- hp_filter_subsec(
   data = res$data,
-  subsec_target = "EN - Building",
+  subsec_target = "EN - Electricity/Heat",
   gas_target = "CO2",
   lambda_hp = 1600
 )
@@ -288,12 +276,32 @@ res <- hp_filter_subsec(
 # plot
 print(res$plot)
 
+res <- hp_filter_subsec(
+  data = res$data,
+  subsec_target = "EN - Electricity/Heat",
+  gas_target = "N2O",
+  lambda_hp = 1600
+)
+
+# plot
+print(res$plot)
+
+res <- hp_filter_subsec(
+  data = res$data,
+  subsec_target = "EN - Electricity/Heat",
+  gas_target = "CH4",
+  lambda_hp = 1600
+)
+
+# plot
+print(res$plot)
 
 
 table(data_new$CSC.Subsector)
 table(data_new$strategy)
 
 res$data <- subset(res$data,CSC.Subsector!='UNACCOUNTED')
+data_new <- subset(data_new,CSC.Subsector!='UNACCOUNTED')
 
 table(res$data$CSC.Subsector)
 

@@ -185,3 +185,4 @@ transformations/
 
 # ignore tableau large files
 ssp_modeling/Tableau/data/
+.Rproj.user
