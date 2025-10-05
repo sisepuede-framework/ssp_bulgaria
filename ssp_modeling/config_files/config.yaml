@@ -1,5 +1,5 @@
 country_name: "bulgaria"
-ssp_input_file_name: "BGR_real_data_20250625.csv"
-ssp_transformation_cw: "ssp_bulgaria_transformation_v0.xlsx"
+ssp_input_file_name: "sisepuede_raw_inputs_latest_BGR.csv"
+ssp_transformation_cw: "ssp_bulgaria_transformation_cw.xlsx"
 set_lndu_reallocation_factor_to_zero: true
 energy_model_flag: true
