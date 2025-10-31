@@ -177,12 +177,12 @@ cython_debug/
 # ignore .mps files
 *.mps
 
-# ignore the transformations dir
-transformations/
-
 # ignore the .vscode directory
 .vscode/
 
 # ignore tableau large files
 ssp_modeling/Tableau/data/
 .Rproj.user
+
+
+ssp_modeling/transformations/templates
