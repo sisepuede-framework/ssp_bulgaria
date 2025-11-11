@@ -1,5 +1,5 @@
 citations: null
-description: None
+description: Missing
 identifiers:
   transformation_code: "TX:TRNS:SHIFT_FUEL_MEDIUM_DUTY_STRATEGY_LEP"
   transformation_name: "Scaled Default Max Parameters by 1.0 - TRNS: Fuel switch medium\
@@ -14,5 +14,6 @@ parameters:
   - fuel_diesel
   - fuel_gasoline
   magnitude: 0.7
-  vec_implementation_ramp: null
+  vec_implementation_ramp:
+    tp_0_ramp: 12
 transformer: "TFR:TRNS:SHIFT_FUEL_MEDIUM_DUTY"
