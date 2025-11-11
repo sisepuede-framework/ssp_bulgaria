@@ -184,6 +184,6 @@ cython_debug/
 ssp_modeling/Tableau/data/
 .Rproj.user
 
-
+# ignore templates
 ssp_modeling/transformations/templates
 ssp_modeling/ssp_run_output
