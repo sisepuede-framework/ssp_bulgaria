@@ -1,6 +1,6 @@
 country_name: "bulgaria"
 ssp_input_file_name: "sisepuede_raw_inputs_latest_BGR_nov_12.csv"
-ssp_transformation_cw: "ssp_bulgaria_transformation_wem_wam.xlsx"
+ssp_transformation_cw: "ssp_bulgaria_transformation_nov_12.xlsx"
 set_lndu_reallocation_factor_to_zero: true
 energy_model_flag: true
 sim_end_year: 2050
