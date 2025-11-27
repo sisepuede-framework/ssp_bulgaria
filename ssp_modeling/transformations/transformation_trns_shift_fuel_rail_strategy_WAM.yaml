@@ -2,7 +2,7 @@ citations: null
 description: Missing
 identifiers:
   transformation_code: "TX:TRNS:SHIFT_FUEL_RAIL_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 3.0 - TRNS: Electrify rail"
+  transformation_name: "Scaled Default Max Parameters by 3 - TRNS: Electrify rail"
 parameters:
   categories:
   - rail_freight
