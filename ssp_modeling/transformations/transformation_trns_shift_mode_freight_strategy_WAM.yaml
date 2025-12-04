@@ -2,7 +2,7 @@ citations: null
 description: Missing
 identifiers:
   transformation_code: "TX:TRNS:SHIFT_MODE_FREIGHT_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 3 - TRNS: Mode shift freight"
+  transformation_name: "Scaled Default Max Parameters by 3.0 - TRNS: Mode shift freight"
 parameters:
   categories_out:
   - aviation

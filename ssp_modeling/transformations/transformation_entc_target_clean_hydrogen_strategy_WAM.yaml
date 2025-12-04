@@ -2,7 +2,7 @@ citations: null
 description: 'Set a target for clean hydrogen production. '
 identifiers:
   transformation_code: "TX:ENTC:TARGET_CLEAN_HYDROGEN_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 1 - ENTC: Clean hydrogen"
+  transformation_name: "Scaled Default Max Parameters by 1.0 - ENTC: Clean hydrogen"
 parameters:
   categories_source: null
   categories_target: null

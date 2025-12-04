@@ -2,7 +2,7 @@ citations: null
 description: Missing
 identifiers:
   transformation_code: "TX:INEN:INC_EFFICIENCY_ENERGY_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 3 - INEN: Maximize industrial\
+  transformation_name: "Scaled Default Max Parameters by 3.0 - INEN: Maximize industrial\
     \ energy efficiency"
 parameters:
   magnitude: 0.8999999999999999
