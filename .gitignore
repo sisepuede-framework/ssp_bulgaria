@@ -187,3 +187,4 @@ ssp_modeling/Tableau/data/
 # ignore templates
 ssp_modeling/transformations/templates
 ssp_modeling/ssp_run_output
+ssp_modeling/cost-benefits/output
