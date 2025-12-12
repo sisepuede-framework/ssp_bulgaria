@@ -6,7 +6,9 @@ identifiers:
   transformation_name: "Scaled Default Max Parameters by 1.0 - LSMM: Improve manure\
     \ management for poultry"
 parameters:
-  dict_lsmm_pathways: null
+  dict_lsmm_pathways:
+    anaerobic_digester: 0.5
+    poultry_manure: 0.45
   return_pathways: false
   vec_cats_lvst: null
   vec_implementation_ramp:
