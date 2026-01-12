@@ -21,7 +21,7 @@ target_vars <- unlist(strsplit(te_all$Vars,":"))
 data_all<-read.csv(paste0(dir.output,output.file))
 dim(data_all)
 
-data_all$emission_co2e_co2_frst_harvested_wood_products = 0
+# data_all$emission_co2e_co2_frst_harvested_wood_products = 0
 
 rall <- unique(data_all$region)
 
