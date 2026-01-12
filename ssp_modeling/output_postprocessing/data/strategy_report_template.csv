@@ -1,6 +1,6 @@
-﻿subsector,2022_target,2030_WEM_target,2050_WEM_target,2030_WAM_target,2050_WAM_target
-Energy,45.1,23.8,15.1,16.7,0
-"Land Use, Land Use Change, and Forestry",-9.3,-9.5,-9.2,-9.5,-9.2
-Waste,2.8,2.1,1.9,1.6,1.4
-Agriculture,5.5,5.7,6,5.5,5.8
-Industrial Processes,4.6,4,3.9,3.4,0.5
+﻿subsector,2050_WEM_target,2050_WAM_target
+Agriculture,6,5.8
+Energy,15.1,0
+Industrial Processes,3.9,0.5
+"Land Use, Land Use Change, and Forestry",-9.2,-9.2
+Waste,1.9,1.4
