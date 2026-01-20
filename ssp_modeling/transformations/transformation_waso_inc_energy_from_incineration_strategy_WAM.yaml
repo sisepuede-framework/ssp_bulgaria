@@ -2,10 +2,10 @@ citations: null
 description: Missing
 identifiers:
   transformation_code: "TX:WASO:INC_ENERGY_FROM_INCINERATION_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 0.95 - WASO: Incineration\
+  transformation_name: "Scaled Default Max Parameters by 0.9 - WASO: Incineration\
     \ for energy production"
 parameters:
-  magnitude: 0.8075
+  magnitude: 0.765
   vec_implementation_ramp:
     tp_0_ramp: 12
 transformer: "TFR:WASO:INC_ENERGY_FROM_INCINERATION"
