@@ -156,6 +156,22 @@ test2 <- rbind(test2, drivers_table, fill=TRUE)
 dir.tableau <- paste0("ssp_modeling/tableau/data/")
 file.name <- paste0("drivers_",region,"_",output.file)
 
+if ("category_value" %in% names(test2)) {
+  before_idx <- which(test2$category_value == "('cement', 'cement')")
+  message("category_value column found. Matches to replace: ", length(before_idx))
+  if (length(before_idx) > 0) {
+    test2$category_value[before_idx] <- "cement_clinker"
+    after_idx <- which(test2$category_value == "cement_clinker")
+    message("Replacement complete. Rows now 'cement_clinker': ", length(after_idx))
+    message("Sample rows after replacement:")
+    print(head(test2[after_idx, c("variable", "category_value")], 5))
+  } else {
+    message("No rows matched the target value; no replacement performed.")
+  }
+} else {
+  message("category_value column not present in test2.")
+}
+
 write.csv(test2, paste0(dir.tableau,file.name), row.names=FALSE)
 
 print("Finish: data_prep_drivers process")
