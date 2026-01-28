@@ -11,7 +11,9 @@ parameters:
   dict_magnitude_eff: 0.9
   dict_magnitude_prev:
     metals: 0.99
+    cement: 0.99
     lime_and_carbonite: 0.99
+    mining: 0.99
   return_prevalence_dict: false
   vec_implementation_ramp:
     tp_0_ramp: 12
