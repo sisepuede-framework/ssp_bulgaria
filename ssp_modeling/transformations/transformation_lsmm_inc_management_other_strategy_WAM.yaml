@@ -8,9 +8,9 @@ identifiers:
     \ management for other animals"
 parameters:
   dict_lsmm_pathways:
-    anaerobic_digester: 0.3
-    composting: 0.3
-    dry_lot: 0.2
+    anaerobic_digester: 0.05
+    composting: 0.20
+    dry_lot: 0.60
     daily_spread: 0.15
   return_pathways: false
   vec_cats_lvst: null

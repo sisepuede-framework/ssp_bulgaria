@@ -2,9 +2,9 @@ citations: null
 description: Missing
 identifiers:
   transformation_code: "TX:WASO:INC_RECYCLING_STRATEGY_WAM"
-  transformation_name: "Scaled Default Max Parameters by 0.75 - WASO: Increase recycling"
+  transformation_name: "Scaled Default Max Parameters by 0.79 - WASO: Increase recycling"
 parameters:
-  magnitude: 0.7124999999999999
+  magnitude: 0.7505
   vec_implementation_ramp:
     tp_0_ramp: 12
 transformer: "TFR:WASO:INC_RECYCLING"

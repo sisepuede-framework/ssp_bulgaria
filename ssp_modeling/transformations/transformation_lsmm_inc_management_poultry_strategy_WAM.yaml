@@ -7,8 +7,8 @@ identifiers:
     \ management for poultry"
 parameters:
   dict_lsmm_pathways:
-    anaerobic_digester: 0.5
-    poultry_manure: 0.45
+    anaerobic_digester: 0.05
+    poultry_manure: 0.95
   return_pathways: false
   vec_cats_lvst: null
   vec_implementation_ramp:
