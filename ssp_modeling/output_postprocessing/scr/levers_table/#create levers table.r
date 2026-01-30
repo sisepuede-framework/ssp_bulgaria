@@ -22,6 +22,16 @@ dim(ssp_table)
 ssp_table <- merge(ssp_table,scodes[,c("transformation_code","transformation_name_stakeholder","Sector..output.","Subsector..output.","Example.government.policies")],by="transformation_code")
 dim(ssp_table)
 
-write.csv(ssp_table,"ssp_modeling/tableau/data/tableau_levers_table_complete.csv")
+run_suffix <- ""
+if (exists("run")) {
+  run_timestamp <- if (grepl("^sisepuede_results_sisepuede_run_", run)) {
+    sub("^sisepuede_results_sisepuede_run_", "", run)
+  } else {
+    run
+  }
+  run_suffix <- paste0("_", run_timestamp)
+}
+
+write.csv(ssp_table,paste0("ssp_modeling/tableau/data/tableau_levers_table_complete", run_suffix, ".csv"))
 
 print("Levers table created")

@@ -13,13 +13,20 @@ rm(list=ls())
 #ouputfile
 
 # Use this for normal run
-# run <- 'sisepuede_results_sisepuede_run_2026-01-21T15;54;50.446395'
+run <- 'sisepuede_results_sisepuede_run_2026-01-29T17;21;21.398032'
 
 # Use this for tornado run
-run <- 'sisepuede_results_sisepuede_run_2026-01-22T16;45;26.395826'
+# run <- 'sisepuede_results_sisepuede_run_2026-01-28T15;11;38.217551'
 
 # Use this for debugging tornado run
-# run <- "sisepuede_results_sisepuede_run_2026-01-21T16;23;11.022295"
+# run <- "sisepuede_results_sisepuede_run_2026-01-29T15;28;40.322709"
+
+run_timestamp <- if (grepl("^sisepuede_results_sisepuede_run_", run)) {
+  sub("^sisepuede_results_sisepuede_run_", "", run)
+} else {
+  run
+}
+run_suffix <- paste0("_", run_timestamp)
 
 dir.output  <- paste0('ssp_modeling/ssp_run_output/', run, '/')
 output.file <- paste0(run, '_WIDE_INPUTS_OUTPUTS.csv')
@@ -33,10 +40,10 @@ source('ssp_modeling/output_postprocessing/scr/run_script_baseline_run_new.r')
 
 source('ssp_modeling/output_postprocessing/scr/data_prep_new_mapping.r')
 
-# source('ssp_modeling/output_postprocessing/scr/data_prep_drivers.r')
+source('ssp_modeling/output_postprocessing/scr/data_prep_drivers.r')
 
-# # Levers table
-# source('ssp_modeling/output_postprocessing/scr/levers_table/#create levers table.r')
+# Levers table
+source('ssp_modeling/output_postprocessing/scr/levers_table/#create levers table.r')
 
 # # Jobs table
 # source('ssp_modeling/output_postprocessing/scr/levers_table/#create jobs table.r')

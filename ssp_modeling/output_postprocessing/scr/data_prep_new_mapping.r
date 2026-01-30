@@ -307,14 +307,23 @@ table(res$data$CSC.Subsector)
 
 #write file#wristrategyte file
 dir.tableau <- paste0("ssp_modeling/tableau/data/")
-file.name <- paste0("decomposed_emissions_", region, "_", year_ref,'.csv')
+run_suffix <- ""
+if (exists("run")) {
+  run_timestamp <- if (grepl("^sisepuede_results_sisepuede_run_", run)) {
+    sub("^sisepuede_results_sisepuede_run_", "", run)
+  } else {
+    run
+  }
+  run_suffix <- paste0("_", run_timestamp)
+}
+
+file.name <- paste0("decomposed_emissions_", region, "_", year_ref, run_suffix, ".csv")
 
 write.csv(res$data,paste0(dir.tableau,file.name),row.names=FALSE)
 
-file.name <- paste0("raw_emissions_", region, "_", year_ref,'.csv')
+file.name <- paste0("raw_emissions_", region, "_", year_ref, run_suffix, ".csv")
 write.csv(data_new,paste0(dir.tableau,file.name),row.names=FALSE)
 
 print('Finish:data_prep_new_mapping process')
-
 
 
