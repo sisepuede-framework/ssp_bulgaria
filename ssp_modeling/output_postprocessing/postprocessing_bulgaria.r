@@ -13,7 +13,7 @@ rm(list=ls())
 #ouputfile
 
 # Use this for normal run
-run <- 'sisepuede_results_sisepuede_run_2026-02-02T11;36;55.523057'
+run <- 'sisepuede_results_sisepuede_run_2026-02-05T12;02;02.182326'
 
 # # Use this for tornado run
 # run <- 'sisepuede_results_sisepuede_run_2026-01-30T21;12;12.498573'
