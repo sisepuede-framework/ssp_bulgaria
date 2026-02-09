@@ -8,12 +8,12 @@ identifiers:
   transformation_name: "Scaled Default Max Parameters by 1.0 - PFLO: Industrial carbon\
     \ capture and sequestration"
 parameters:
-  dict_magnitude_eff: 0.9
+  dict_magnitude_eff: 0.41
   dict_magnitude_prev:
-    metals: 0.99
-    cement: 0.99
-    lime_and_carbonite: 0.99
-    mining: 0.99
+    metals: 0.41
+    cement: 0.41
+    lime_and_carbonite: 0.41
+    mining: 0.41
   return_prevalence_dict: false
   vec_implementation_ramp:
     tp_0_ramp: 12
