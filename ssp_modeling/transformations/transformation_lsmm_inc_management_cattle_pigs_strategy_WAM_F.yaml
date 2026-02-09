@@ -9,8 +9,8 @@ identifiers:
     \ management for cattle and pigs"
 parameters:
   dict_lsmm_pathways:
-    anaerobic_digester: 0.90
-    composting: 0.10
+    anaerobic_digester: 0.93
+    composting: 0.07
     daily_spread: 0.00
   return_pathways: false
   vec_cats_lvst: null
