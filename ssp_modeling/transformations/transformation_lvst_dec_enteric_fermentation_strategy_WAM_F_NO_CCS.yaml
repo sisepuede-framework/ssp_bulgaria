@@ -6,11 +6,11 @@ identifiers:
     \ fermentation"
 parameters:
   dict_lvst_reductions:
-    cattle_dairy: 0.60
-    cattle_non_dairy: 0.65
-    buffalo: 0.60
-    sheep: 0.50
-    goats: 0.50
+    cattle_dairy: 0.6
+    cattle_non_dairy: 0.6
+    buffalo: 0.6
+    sheep: 0.2
+    goats: 0.2
   return_reductions_dict: false
   vec_implementation_ramp:
     tp_0_ramp: 12
