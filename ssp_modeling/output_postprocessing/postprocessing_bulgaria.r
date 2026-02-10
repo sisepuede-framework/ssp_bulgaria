@@ -13,10 +13,10 @@ rm(list=ls())
 #ouputfile
 
 # Use this for normal run
-run <- 'sisepuede_results_sisepuede_run_2026-02-05T12;02;02.182326'
+# run <- 'sisepuede_results_sisepuede_run_2026-02-09T11;16;12.109722'
 
 # # Use this for tornado run
-# run <- 'sisepuede_results_sisepuede_run_2026-01-30T21;12;12.498573'
+run <- 'sisepuede_results_sisepuede_run_2026-02-09T12;59;59.346494'
 
 # Use this for debugging tornado run
 # run <- "sisepuede_results_sisepuede_run_2026-01-29T15;28;40.322709"
@@ -40,10 +40,10 @@ source('ssp_modeling/output_postprocessing/scr/run_script_baseline_run_new.r')
 
 source('ssp_modeling/output_postprocessing/scr/data_prep_new_mapping.r')
 
-source('ssp_modeling/output_postprocessing/scr/data_prep_drivers.r')
+# source('ssp_modeling/output_postprocessing/scr/data_prep_drivers.r')
 
 # Levers table
-source('ssp_modeling/output_postprocessing/scr/levers_table/#create levers table.r')
+# source('ssp_modeling/output_postprocessing/scr/levers_table/#create levers table.r')
 
 # # Jobs table
 # source('ssp_modeling/output_postprocessing/scr/levers_table/#create jobs table.r')
